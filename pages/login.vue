@@ -21,7 +21,7 @@
           <span>账号登录</span>
           <span style="float: right">
             <el-link target="_blank" :underline="false" @click="changeLoginWay">
-              手机动态码登录
+              {{codeLogin}}
               <i class="el-icon-mobile-phone el-icon--right"></i>
             </el-link>
           </span>
@@ -90,6 +90,7 @@ export default {
   data: () => {
     return {
       checked: "",
+      codeLogin: "手机动态码登录",
       username: "",
       password: "",
       phoneCode: "",
@@ -180,6 +181,12 @@ export default {
       }
     },
     changeLoginWay() {
+      if(this.passwordLogin){
+         this.codeLogin = "账号密码登录"
+      }else{
+         this.codeLogin = "手机验证码登录"
+         
+      }
       this.passwordLogin = !this.passwordLogin;
       this.password = "";
       this.phoneCode = "";

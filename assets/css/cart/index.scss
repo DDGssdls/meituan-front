@@ -59,3 +59,16 @@
 .divider {
     width: 980px;
 }
+
+.el-button--goon:focus,
+.el-button--goon:hover {
+    background: #48D1CC;
+    border-color: #48D1CC;
+    color: #fff;
+}
+
+.el-button--goon {
+    color: #FFF;
+    background-color: #20B2AA;
+    border-color: #20B2AA;
+}

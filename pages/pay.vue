@@ -209,9 +209,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/css/pay/index.scss";
-
-.pay-img {
-  width: 371px;
-  height: 438px;
-}
 </style>

@@ -39,7 +39,7 @@ export default {
       await this.$axios
         .get(`/product/category/listWithTree`)
         .then(res => {
-          this.menu = res.data;
+          this.menu = res.data.data;
           
         })
         .catch(err => {});

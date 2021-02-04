@@ -11,7 +11,12 @@
     <div class="detail" v-if="kind" @mouseenter="sover" @mouseleave="sout">
       <template v-for="(item,idx) in curdetail.children.slice(0, 3)">
         <h4 :key="idx">{{ item.name }}</h4>
-        <span v-for="v in item.children" :key="v.catId">{{ v.name }}</span>
+        <span
+          v-for="v in item.children"
+          :key="v.catId"
+          :class="v.name"
+          @click="toOrder"
+        >{{ v.name }}</span>
       </template>
     </div>
   </div>
@@ -23,11 +28,11 @@ export default {
     return {
       //记录鼠标hover时的类型
       kind: "",
-     menu: []
+      menu: []
     };
   },
   created() {
-      this.getMenuList();
+    this.getMenuList();
   },
   computed: {
     curdetail: function() {
@@ -35,12 +40,20 @@ export default {
     }
   },
   methods: {
+    toOrder(el) {
+      let login = localStorage.getItem("loginUser");
+      if (login) {
+        let ckeckedName = el.target.className;
+        window.location.href = `/products?search=${ckeckedName}`;
+      } else {
+        this.$router.push("/login");
+      }
+    },
     getMenuList: async function() {
       await this.$axios
         .get(`/product/category/listWithTree`)
         .then(res => {
           this.menu = res.data.data;
-          
         })
         .catch(err => {});
     },

@@ -12,20 +12,26 @@
     </el-row>
     <el-row class="m-title">
       <el-col :span="24">
-        <h3>商家团购及优惠</h3>
+        <h3 style="font-size: 20px;line-height: 26px; margin-bottom: 8px;">商家团购及优惠</h3>
       </el-col>
     </el-row>
     <!-- 当能购买或者没有登录时显示模块 -->
     <el-row v-if="canOrder || !login">
       <el-col :span="24">
-        <list v-if="login" :list="list" />
-        <div v-else class="deal-need-login">
-          <img src="//p0.meituan.net/codeman/56a7d5abcb5ce3d90fc91195e5b5856911194.png" alt="登录查看" />
-          <span>请登录后查看详细团购优惠</span>
-          <el-button type="primary" round>
-            <a href="/login">立即登录</a>
-          </el-button>
-        </div>
+        
+          <list  v-if="login" :list="list" />
+         
+          <div v-else class="deal-need-login">
+            <img
+              src="//p0.meituan.net/codeman/56a7d5abcb5ce3d90fc91195e5b5856911194.png"
+              alt="登录查看"
+            />
+            <span>请登录后查看详细团购优惠</span>
+            <el-button type="primary" round>
+              <a href="/login">立即登录</a>
+            </el-button>
+          </div>
+       
       </el-col>
     </el-row>
   </div>
@@ -51,7 +57,7 @@ export default {
     List
   },
   mounted() {
-     this.checkLogin();
+    this.checkLogin();
   },
   computed: {
     //通过是否有图片判断当前产品能否购买，模拟上线购买状态
@@ -61,10 +67,10 @@ export default {
   },
   methods: {
     checkLogin() {
-      let loginUser = localStorage.getItem("loginUser")
+      let loginUser = localStorage.getItem("loginUser");
       if (loginUser) {
         this.login = true;
-         console.log(this.login)
+        console.log(this.login);
       } else {
         this.login = false;
       }

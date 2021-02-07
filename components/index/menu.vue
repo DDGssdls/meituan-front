@@ -14,7 +14,7 @@
         <span
           v-for="v in item.children"
           :key="v.catId"
-          :class="v.name"
+          :class="v.catId+ ''"
           @click="toOrder"
         >{{ v.name }}</span>
       </template>
@@ -44,6 +44,7 @@ export default {
       let login = localStorage.getItem("loginUser");
       if (login) {
         let ckeckedName = el.target.className;
+        console.log(el.target)
         window.location.href = `/products?search=${ckeckedName}`;
       } else {
         this.$router.push("/login");

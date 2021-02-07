@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       id: `map`,
-      key: '0dbc0dfd7c775f2a927174493eab8220'
+      key: 'e7a7ae646fcb031bb89998b7fd6397dd'
     }
   },
   watch: {

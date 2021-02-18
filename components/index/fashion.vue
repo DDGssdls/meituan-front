@@ -2,26 +2,20 @@
   <section class="m-istyle">
     <dl @mouseover="over">
       <dt>猜你喜欢</dt>
-      <dd
-        :class="{active:kind==='all'}"
-        kind="all"
-        keyword="最合适">为你甄选最适合的</dd>
+      <dd :class="{active:kind==='all'}" kind="all" keyword="最合适">为你甄选最适合的</dd>
     </dl>
     <ul class="ibody">
-      <li
-        v-for="(item, index) in curList"
-        :key="index">
-        <el-card
-          :body-style="{ padding: '0px' }"
-          shadow="never">
-          <img
-            :src="item.img"
-            class="image">
-          <ul class="cbody">
-            <li class="title">{{ item.title }}</li>
-            <li class="pos"><span>{{ item.pos }}</span></li>
-            <li class="price">￥<em>{{ item.price }}</em><span>/起</span></li>
-          </ul>
+      <li v-for="(item, idx) in lovelyList.slice(0,10)" :key="idx">
+        <el-card class="inner-card-fashion" shadow="never">
+          <nuxt-link :to="{path:'/detail',query:{brandId:item.brandId}}">
+            <img class="fashion-img" :src="url" alt="_blank" />
+            <p class="name">{{item.brandName}}</p>
+            <p class="desc">{{item.addr}}</p>
+            <p class="price">
+              <b>￥</b>
+              {{item.price}}
+            </p>
+          </nuxt-link>
         </el-card>
       </li>
     </ul>
@@ -31,67 +25,114 @@
 export default {
   data: () => {
     return {
-      kind: 'all',
-      curList:[{
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
+      url:
+        "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+      fit: "fill",
+      kind: "all",
+      lovelyList: [
+        {
+          brandId: 1,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
         },
         {
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
-        },{
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
-        },{
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
-        },{
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
-        },{
-          title: '张三',
-          pos: '保岱镇',
-          price: 666,
-          img: 'https://img.meituan.net/phoenix/14bc46b5740b7714df2dc3fbf27b542d1459696.jpg@1920w_1080h'
+          brandId: 2,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 3,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 4,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
+        },
+        {
+          brandId: 5,
+          brandName: "火炉火烤肉·芝士排骨（西红门荟聚购物中心店）",
+          addr: "西红门",
+          price: "210.0"
         }
-        ],
-      city: '北京',
+      ],
+     
+      city: "北京",
       list: {
         all: [],
         part: [],
         spa: [],
         movie: [],
-        travel: [],
+        travel: []
       }
-    }
+    };
   },
   computed: {
-    cur: function () {
-      return this.list[this.kind]
+    cur: function() {
+      return this.list[this.kind];
     }
   },
-  async mounted(){
-    let self=this;
-    
+  async mounted() {
+    let self = this;
   },
   methods: {
-    over: async function (e) {
-   
-    }
-  },
-
-}
+    over: async function(e) {}
+  }
+};
 </script>
 <style lang="scss" scoped>
-    @import "@/assets/css/index/fashion.scss";
+@import "@/assets/css/index/fashion.scss";
 </style>

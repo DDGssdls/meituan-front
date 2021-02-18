@@ -112,7 +112,7 @@ export default {
           }
         })
         .then(data => {
-          console.log("-------------------------");
+         
           this.totalPage = data.data.page.totalCount;
           this.list = data.data.page.list;
         })

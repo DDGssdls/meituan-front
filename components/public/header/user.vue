@@ -31,6 +31,8 @@ export default {
         await this.$axios.get(`member/member/getLoginUser/${loginUserPhone}`).then((res) =>{
             if(res.data.loginUser){
               this.user = res.data.loginUser.userName;
+            }else{
+              localStorage.removeItem("loginUser")
             }
         })
      }

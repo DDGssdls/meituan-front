@@ -149,6 +149,8 @@ export default {
           if (res.data.loginUser) {
             this.login = true;
             this.user = res.data.loginUser.userName;
+          }else{
+            localStorage.removeItem("loginUser")
           }
         });
     }

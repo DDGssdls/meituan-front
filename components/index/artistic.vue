@@ -11,7 +11,7 @@
     <ul class="ibody">
       <li v-for="(item, index) in curList" :key="index">
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img @click="handlerCilck" :src="item.img" :class="item.title" />
+          <img class="my-img" @click="handlerCilck" :src="item.img" :class="item.title" />
           <ul class="cbody">
             <li class="title">{{ item.title }}</li>
             <li class="pos">

@@ -2,11 +2,12 @@
   <dl class="s-item">
     <dt>
       <img
+        @click="handleClick"
         :src="meta.img"
         alt="商品图片">
     </dt>
     <dd>
-      <h3><nuxt-link :to="{path:'/detail',query:{keyword:meta.name,type:meta.module}}">{{ meta.name }}</nuxt-link></h3>
+      <h3><nuxt-link :to="{path:'/detail',query:{brandId:meta.brandId}}">{{ meta.name }}</nuxt-link></h3>
       <el-rate
         v-model="meta.rate"
         :colors="['#ff9900', '#ff9900', '#FF9900']"
@@ -54,6 +55,11 @@ export default {
       default(){
         return {}
       }
+    }
+  },
+  methods: {
+    handleClick(){
+      this.$router.push(`/detail?brandId=${this.meta.brandId}`)
     }
   }
 }

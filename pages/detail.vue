@@ -24,9 +24,7 @@
         <div v-else class="deal-need-login">
           <img src="//p0.meituan.net/codeman/56a7d5abcb5ce3d90fc91195e5b5856911194.png" alt="登录查看" />
           <span>请登录后查看详细团购优惠</span>
-          <el-button type="primary" round>
-            <a href="/login">立即登录</a>
-          </el-button>
+          <el-button @click="toLogin" type="primary" round>立即登录</el-button>
         </div>
         <comment></comment>
       </el-col>
@@ -34,7 +32,7 @@
         <lovely></lovely>
       </el-col>
     </el-row>
-     <el-backtop></el-backtop>
+    <el-backtop></el-backtop>
   </div>
 </template>
 
@@ -72,6 +70,9 @@ export default {
     }
   },
   methods: {
+    toLogin() {
+      this.$router.push("/login");
+    },
     checkLogin() {
       let loginUser = localStorage.getItem("loginUser");
       if (loginUser) {

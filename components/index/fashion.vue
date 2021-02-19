@@ -26,7 +26,7 @@ export default {
   data: () => {
     return {
       url:
-        "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+        "https://p1.meituan.net/mogu/cb6e5ed585e058d2862811174636e092223079.jpg",
       fit: "fill",
       kind: "all",
       lovelyList: [
